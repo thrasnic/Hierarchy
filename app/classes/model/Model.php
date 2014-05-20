@@ -1,8 +1,8 @@
 <?php
 /**
- * COPYRIGHT(C) 2014 adrian.teh. All Rights Reserved
+ * COPYRIGHT(C) 2014 Potentiate Pty Ltd. All Rights Reserved
  * 
- * HierarchyController.php 
+ * Model 
  *
  * <p>
  * 		Description:
@@ -20,7 +20,7 @@
  * @version	:  
  * @since	: 20/05/2014
  */
-class HierarchyController
+class Model
 {
 	//-----------------------------------------------------//
 	//

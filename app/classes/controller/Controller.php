@@ -2,7 +2,7 @@
 /**
  * COPYRIGHT(C) 2014 adrian.teh. All Rights Reserved
  * 
- * HierarchyDO.php 
+ * Controller.php 
  *
  * <p>
  * 		Description:
@@ -20,7 +20,7 @@
  * @version	:  
  * @since	: 20/05/2014
  */
-class HierarchyDO
+class Controller
 {
 	//-----------------------------------------------------//
 	//
@@ -65,6 +65,37 @@ class HierarchyDO
 	// Public functions
 	//
 	//-----------------------------------------------------//
+	//-------------------------------//
+	// create
+	//-------------------------------//
+	public function create(TreeDO $tree)
+	{
+	    
+	}
+	
+	//-------------------------------//
+	// retrieve
+	//-------------------------------//
+	public function retrieve()
+	{
+	
+	}
+	
+	//-------------------------------//
+	// update
+	//-------------------------------//
+	public function update()
+	{
+	     
+	}
+	
+	//-------------------------------//
+	// delete
+	//-------------------------------//
+	public function delete()
+	{
+	     
+	}
 }
 
 ?>

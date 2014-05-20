@@ -104,3 +104,12 @@ body {
     display: inline-block;
     border-radius: 50%;
 }
+
+/*
+ * controls
+ */
+.controls-button {
+    display: inline;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

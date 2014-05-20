@@ -46,9 +46,6 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">Help</a></li>
 				</ul>
-				<form class="navbar-form navbar-right">
-					<input type="text" class="form-control" placeholder="Search...">
-				</form>
 			</div>
 		</div>
 	</div>
@@ -58,12 +55,25 @@
 		<div class="row">
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<li class="active"><a href="#">Overview</a></li>
+					<li class="active"><a href="#">List of Hierarchies</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h1 class="page-header">View</h1>
-
+				
+				<!-- title -->
+				<h1 class="page-header">Hierarchies</h1>
+				
+			    <!-- add -->
+				<form class="pull-left">
+			        <input type="text" class="form-control" placeholder="Enter Hierarchy Name">
+				    <button class="btn btn-primary" id="addButton" name="addButton">Add</button>
+				</form>
+				
+			    <!-- search -->
+				<form class="navbar-right">
+					<input type="text" class="form-control" placeholder="Enter Search Value">
+				</form>
+				
 			</div>
 		</div>
 	</div>

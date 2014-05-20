@@ -1,6 +1,10 @@
 <?php
 require_once(dirname(__FILE__) . '/../../config/app.inc.php');
 
+// classes
+require_once(constant('APP_MODEL_DIR') . DIRECTORY_SEPARATOR	. 'Node.php');
+require_once(constant('APP_MODEL_DIR') . DIRECTORY_SEPARATOR	. 'Model.php');
+
 /**
  * COPYRIGHT(C) 2014 adrian.teh. All Rights Reserved
  * 
@@ -71,7 +75,7 @@ class Controller
 	//-------------------------------//
 	// create
 	//-------------------------------//
-	public function create(TreeDO $tree)
+	public function create(Node $node)
 	{
 	    
 	}

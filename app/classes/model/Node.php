@@ -75,6 +75,8 @@ class Node
 	    $this->created_at  = $created_at;
 	    $this->updated_at  = $updated_at;
 	    
+	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, 'Constructed Node id=[ ' . $this->id . ' ], tag=[ ' . $this->tag . ' ].');
+	    
 	    return true;
 	}
 

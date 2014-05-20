@@ -99,7 +99,7 @@ class BasicLogger
 	 */
 	public function write($type, $caller, $line_number, $function, $message)
 	{
-	    print '[ ' . $type . ' ] ' . $caller . '( '. $line_number . ' ) ' . $function . ' - ' . $message;
+	    print '[ ' . $type . ' ] ' . $caller . '( '. $line_number . ' ) ' . $function . ' - ' . $message . "\n";
 	}
 }
 

@@ -25,7 +25,12 @@ require_once(dirname(__FILE__) . '/../classes/controller/Controller.php');
  * @version	:  
  * @since	: 20/05/2014
  */
-$c = new Controller();
 
+// create
+// fatal, invalid id and invalid tag then successful
+$c = new Controller();
+$c->create(new Node(null, '', ''));
+$c->create(new Node(1, '', ''));
+$c->create(new Node(1, 'test', ''));
 
 ?>

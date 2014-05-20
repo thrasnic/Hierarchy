@@ -2,7 +2,7 @@
 /**
  * COPYRIGHT(C) 2014 adrian.teh. All Rights Reserved
  * 
- * Hierarchy.php 
+ * HierarchyDOFactory.php 
  *
  * <p>
  * 		Description:
@@ -20,7 +20,7 @@
  * @version	:  
  * @since	: 20/05/2014
  */
-class Hierarchy
+class HierarchyDOFactory
 {
 	//-----------------------------------------------------//
 	//

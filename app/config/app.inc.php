@@ -45,7 +45,5 @@ define( "DATABASE_SERVER",      'localhost');
 define( "DATABASE_USERNAME",    'root');
 define( "DATABASE_PASSWORD",    'root');
 define( "DATABASE_NAME",        'demo');
-
-//connect to the database.
 $db = new PDO('mysql:dbname=' . DATABASE_NAME . ';host=' . DATABASE_SERVER, DATABASE_USERNAME, DATABASE_PASSWORD);
 ?>

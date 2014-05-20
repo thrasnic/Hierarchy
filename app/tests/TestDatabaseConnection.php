@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/../config/app.inc.php');
 
-//connect to the database.
+// connect to the database.
 $db = new PDO('mysql:dbname=' . DATABASE_NAME . ';host=' . DATABASE_SERVER, DATABASE_USERNAME, DATABASE_PASSWORD);
 
 if(!$db)

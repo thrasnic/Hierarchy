@@ -84,9 +84,9 @@ class NodeFactory
 	// Public functions
 	//
 	//-----------------------------------------------------//
-	public function make($id, $tag, $path, $permissions='', $created_at=0, $updated_at=0)
+	public function make($id, $tag, $path, $created_at=0, $updated_at=0)
 	{
-	    return new Node($id, $tag, $path, $permissions, $created_at, $updated_at);
+	    return new Node($id, $tag, $path, $created_at, $updated_at);
 	}
 }
 

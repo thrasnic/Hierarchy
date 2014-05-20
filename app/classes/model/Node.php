@@ -41,7 +41,6 @@ class Node
     private $id;
     private $tag;
     private $path;
-    private $permission;
     private $created_at;
     private $updated_at;
     
@@ -53,7 +52,7 @@ class Node
 	//-----------------------------//
 	// __construct
 	//-----------------------------//
-	public function __construct($id, $tag, $path, $permissions='', $created_at=0, $updated_at=0)
+	public function __construct($id, $tag, $path, $created_at=0, $updated_at=0)
 	{
 	    // validations
 	    if($id == null or $id == '' or !is_numeric($id))
@@ -72,7 +71,6 @@ class Node
 	    $this->id          = $id;
 	    $this->tag         = $tag;
 	    $this->path        = $path;
-	    $this->permission  = $permissions;
 	    $this->created_at  = $created_at;
 	    $this->updated_at  = $updated_at;
 	    
@@ -189,6 +187,16 @@ class Node
 	// Public functions
 	//
 	//-----------------------------------------------------//
+	//-----------------------------//
+	// __toString
+	//-----------------------------//
+	/**
+	 * @return $string - deserialized format string
+	 */
+	public function __toString()
+	{
+	    return __CLASS__ . '( id=[ ' . $this->id . ' ], tag=[ ' . $this->tag . ' ], path=[ ' . $this->path . ' ], created_at=[ ' . $this->created_at . ' ], updated_at=[ ' . $this->updated_at . ' ] )';
+	}
 }
 
 ?>

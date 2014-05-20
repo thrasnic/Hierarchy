@@ -55,11 +55,13 @@ class Node
 	    // validations
 	    if($id == null or $id == '' or !is_numeric($id))
 	    {
+	        BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Fatal: Invalid id.');
 	        return false;
 	    }
 	    
 	    if($tag == null or $tag == '')
 	    {
+	        BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Fatal: Invalid tag.');
 	        return false;
 	    }
 	    

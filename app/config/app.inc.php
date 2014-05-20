@@ -35,4 +35,17 @@ define('APP_UTIL_DIR', 			constant('APP_CLASSES_DIR')  . DIRECTORY_SEPARATOR	. '
 //
 //-----------------------------------------------------//
 require_once(constant('APP_UTIL_DIR') . DIRECTORY_SEPARATOR	. 'BasicLogger.php');
+
+//-----------------------------------------------------//
+//
+// Database
+//
+//-----------------------------------------------------//
+define( "DATABASE_SERVER",      'localhost');
+define( "DATABASE_USERNAME",    'root');
+define( "DATABASE_PASSWORD",    'root');
+define( "DATABASE_NAME",        'demo');
+
+//connect to the database.
+$db = new PDO('mysql:dbname=' . DATABASE_NAME . ';host=' . DATABASE_SERVER, DATABASE_USERNAME, DATABASE_PASSWORD);
 ?>

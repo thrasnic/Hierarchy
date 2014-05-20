@@ -87,6 +87,8 @@ class TreeController
 	 */
 	public function create($tag, $description='', $time=0)
 	{
+	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, "tag=[ $tag ], description=[ $description ], time=[ $time ]");
+	    
 	    // validations
 	    if($tag == null or $tag == '')
 	    {
@@ -99,9 +101,8 @@ class TreeController
 	        $time = time();
 	    }
 	    
-	    $this->db->connection()->beginTransaction();
-	    
 	    // insert
+	    $this->db->connection()->beginTransaction();
         $sql    = "INSERT INTO node(description, tag, created_at)
 	               VALUES (:description, :tag, :time)";
         $q      = $this->db->connection()->prepare($sql);
@@ -112,26 +113,31 @@ class TreeController
             BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Insert error.');
             return false;
         }
-
-        BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, 'Row inserted.');
-
+        
         $last_insert_id = $this->db->connection()->lastInsertId();
         $this->db->connection()->commit();
         
+        BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, "Row added.");
         return $last_insert_id;
 	}
 	
 	//-------------------------------//
 	// retrieve
 	//-------------------------------//
+	/**
+	 * 
+	 * @return multitype:
+	 */
 	public function retrieve()
 	{
+	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, "()");
+	     
 	    $sql   = 'SELECT * FROM node';
 	    $q     = $this->db->connection()->prepare($sql);
 	    $q->execute();
 	    $results = $q->fetchAll(PDO::FETCH_ASSOC);
 	    
-	    print_r($results);
+	    return $results;
 	}
 	
 	//-------------------------------//
@@ -144,7 +150,7 @@ class TreeController
 	 */
 	public function update($id, $name)
 	{
-	
+	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, "id=[ $id ], name=[ $name ]");
 	}
 	
 	//-------------------------------//
@@ -156,7 +162,21 @@ class TreeController
 	 */
 	public function delete($id)
 	{
-	
+	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, "id=[ $id ]");
+	    
+	    // validations
+	    if($id == null or !is_numeric($id) or $id <= 0)
+	    {
+	        return;
+	    }
+	    
+	    // delete
+	    $sql   = 'DELETE FROM node WHERE id = :id';
+	    $q     = $this->db->connection()->prepare($sql);
+	    $q ->bindParam(':id', $id, PDO::PARAM_INT);
+	    $q->execute();
+	    
+	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, "Row deleted.");
 	}
 }
 

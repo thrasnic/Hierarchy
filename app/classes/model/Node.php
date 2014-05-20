@@ -1,4 +1,6 @@
 <?php
+require_once(dirname(__FILE__) . '/../../config/app.inc.php');
+
 /**
  * COPYRIGHT(C) 2014 adrian.teh. All Rights Reserved
  * 
@@ -55,13 +57,13 @@ class Node
 	    // validations
 	    if($id == null or $id == '' or !is_numeric($id))
 	    {
-	        BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Fatal: Invalid id.');
+	        BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Invalid id.');
 	        return false;
 	    }
 	    
 	    if($tag == null or $tag == '')
 	    {
-	        BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Fatal: Invalid tag.');
+	        BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Invalid tag.');
 	        return false;
 	    }
 	    

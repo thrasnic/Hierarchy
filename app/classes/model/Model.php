@@ -1,4 +1,6 @@
 <?php
+require_once(dirname(__FILE__) . '/../../config/app.inc.php');
+
 /**
  * COPYRIGHT(C) 2014 adrian.teh. All Rights Reserved
  * 

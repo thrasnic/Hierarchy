@@ -1,4 +1,6 @@
 <?php
+require_once(dirname(__FILE__) . '/../../config/app.inc.php');
+
 /**
  * COPYRIGHT(C) 2014 adrian.teh. All Rights Reserved
  * 
@@ -44,6 +46,7 @@ class Controller
 	//-----------------------------//
 	public function __construct()
 	{
+	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, 'Controller started.');
 	}
 
 	//public function __destruct(){}

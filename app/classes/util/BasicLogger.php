@@ -1,4 +1,6 @@
 <?php
+require_once(dirname(__FILE__) . '/../../config/app.inc.php');
+
 /**
  * COPYRIGHT(C) 2014 Potentiate Pty Ltd. All Rights Reserved
  * 
@@ -53,7 +55,6 @@ class BasicLogger
 	//-----------------------------//
 	public function __construct()
 	{
-		CoreLogger::get_instance()->info(__CLASS__, __LINE__, __FUNCTION__, '()');
 	}
 
 	//public function __destruct(){}

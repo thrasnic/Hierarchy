@@ -1,6 +1,6 @@
 <?php
 /**
- * COPYRIGHT(C) 2014 Potentiate Pty Ltd. All Rights Reserved
+ * COPYRIGHT(C) 2014 adrian.teh. All Rights Reserved
  * 
  * Model 
  *
@@ -27,7 +27,6 @@ class Model
 	// Constants
 	//
 	//-----------------------------------------------------//
-	
 	//-----------------------------------------------------//
 	//
 	// Variables

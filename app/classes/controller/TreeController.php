@@ -92,12 +92,13 @@ class TreeController
 	    // validations
 	    if($tag == null or $tag == '')
 	    {
-	        BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Invalid tag.');
+	        BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Invalid tag. Skipping..');
             return false;
 	    }
 	    
 	    if($time == null or $time == 0)
 	    {
+	        BasicLogger::get_instance()->write(BasicLogger::ERROR, __CLASS__, __LINE__, __FUNCTION__, 'Created default time.');
 	        $time = time();
 	    }
 	    
@@ -111,7 +112,7 @@ class TreeController
         if(!$is_ok)
         {
             BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Insert error.');
-            return false;
+            die();
         }
         
         $last_insert_id = $this->db->connection()->lastInsertId();
@@ -146,11 +147,34 @@ class TreeController
 	/**
 	 * 
 	 * @param unknown $id
-	 * @param unknown $name
+	 * @param unknown $tag
 	 */
-	public function update($id, $name)
+	public function update($id, $tag)
 	{
-	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, "id=[ $id ], name=[ $name ]");
+	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, "id=[ $id ], tag=[ $tag ]");
+
+	    // validations
+	    if($id == null or !is_numeric($id) or $id <= 0)
+	    {
+	        BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Invalid id. Skipping..');
+	        return false;
+	    }
+	    
+	    if($tag == null or $tag == '')
+	    {
+	        BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Invalid tag. Skipping..');
+	        return false;
+	    }
+	     
+	    // update
+	    $sql   = 'UPDATE node SET tag = :tag, updated_at = :updated_at WHERE id = :id';
+	    $q     = $this->db->connection()->prepare($sql);
+	    $q->bindParam(':tag', $tag, PDO::PARAM_STR);
+	    $q->bindParam(':updated_at', time(), PDO::PARAM_INT);
+	    $q->bindParam(':id', $id, PDO::PARAM_INT);
+	    $q->execute();
+
+	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, "Row updated.");
 	}
 	
 	//-------------------------------//
@@ -167,13 +191,14 @@ class TreeController
 	    // validations
 	    if($id == null or !is_numeric($id) or $id <= 0)
 	    {
-	        return;
+	        BasicLogger::get_instance()->write(BasicLogger::FATAL, __CLASS__, __LINE__, __FUNCTION__, 'Invalid id. Skipping..');
+	        return false;
 	    }
 	    
 	    // delete
 	    $sql   = 'DELETE FROM node WHERE id = :id';
 	    $q     = $this->db->connection()->prepare($sql);
-	    $q ->bindParam(':id', $id, PDO::PARAM_INT);
+	    $q->bindParam(':id', $id, PDO::PARAM_INT);
 	    $q->execute();
 	    
 	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, "Row deleted.");

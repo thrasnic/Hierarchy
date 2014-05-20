@@ -23,6 +23,12 @@ foreach($ids as $id)
 }
 
 // retrieve
+$records = $c->retrieve();
+print_r($records);
 
+// update
+$random_key = array_rand($records);
+$record_id_to_update = $records[$random_key]['id'];
+$c->update($record_id_to_update, 'updated_at_' . date('Y-m-d h:i:s'));
 
 ?>

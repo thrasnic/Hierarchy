@@ -6,9 +6,9 @@ require_once(constant('APP_MODEL_DIR') . DIRECTORY_SEPARATOR	. 'Node.php');
 require_once(constant('APP_MODEL_DIR') . DIRECTORY_SEPARATOR	. 'Model.php');
 
 /**
- * COPYRIGHT(C) 2014 adrian.teh. All Rights Reserved
+ * COPYRIGHT(C) 2014 Potentiate Pty Ltd. All Rights Reserved
  * 
- * Controller.php 
+ * NodeController 
  *
  * <p>
  * 		Description:
@@ -26,7 +26,7 @@ require_once(constant('APP_MODEL_DIR') . DIRECTORY_SEPARATOR	. 'Model.php');
  * @version	:  
  * @since	: 20/05/2014
  */
-class Controller
+class NodeController
 {
 	//-----------------------------------------------------//
 	//
@@ -50,7 +50,7 @@ class Controller
 	//-----------------------------//
 	public function __construct()
 	{
-	    BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, 'Controller started.');
+		BasicLogger::get_instance()->write(BasicLogger::INFO, __CLASS__, __LINE__, __FUNCTION__, 'Controller constructed.');
 	}
 
 	//public function __destruct(){}
@@ -73,35 +73,29 @@ class Controller
 	//
 	//-----------------------------------------------------//
 	//-------------------------------//
-	// create
+	// add
 	//-------------------------------//
-	public function create(Node $node)
-	{
-	    
-	}
-	
-	//-------------------------------//
-	// retrieve
-	//-------------------------------//
-	public function retrieve()
+	/**
+	 *
+	 * @param Node $node
+	 * @param unknown $id
+	 */
+	public function add(Node $node, $id)
 	{
 	
 	}
 	
 	//-------------------------------//
-	// update
+	// remove
 	//-------------------------------//
-	public function update()
+	/**
+	 *
+	 * @param Node $node
+	 * @param unknown $id
+	 */
+	public function remove(Node $node, $id)
 	{
-	     
-	}
 	
-	//-------------------------------//
-	// delete
-	//-------------------------------//
-	public function delete()
-	{
-	     
 	}
 }
 
